@@ -1,0 +1,459 @@
+/* ============================
+   RESOURCE GRID STYLESHEET
+   Professional Edition - No More Rainbow Nonsense
+   ============================ */
+
+/* ============ GLOBAL STYLES ============ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: #212529;
+    line-height: 1.5;
+}
+
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 4px solid #007bff;
+}
+
+/* ============ FILTER SECTION ============ */
+.filter-section {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+    .filter-section label {
+        font-weight: 500;
+        color: #495057;
+        font-size: 0.875rem;
+        margin-right: 6px;
+    }
+
+    .filter-section input[type="date"] {
+        padding: 8px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        background: white;
+        color: #495057;
+    }
+
+        .filter-section input[type="date"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+
+    .filter-section button {
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+        text-decoration: none;
+        display: inline-block;
+        line-height: 1.5;
+    }
+
+#fetchBtn {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+    #fetchBtn:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+#addResourceBtn {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+    #addResourceBtn:hover {
+        background-color: #1e7e34;
+        border-color: #1c7430;
+    }
+
+/* ============ TABLE STYLES ============ */
+#resourceTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #dee2e6;
+}
+
+    #resourceTable th {
+        background-color: #f8f9fa;
+        color: #495057;
+        padding: 12px 8px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 2px solid #dee2e6;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    #resourceTable td {
+        padding: 8px;
+        border-bottom: 1px solid #dee2e6;
+        vertical-align: middle;
+        font-size: 0.875rem;
+    }
+
+    #resourceTable tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    #resourceTable tbody tr:nth-child(even) {
+        background-color: #fdfdfe;
+    }
+
+    /* ============ INPUT STYLES ============ */
+    #resourceTable input[type="text"],
+    #resourceTable input[type="number"] {
+        width: 100%;
+        padding: 6px 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        background: white;
+    }
+
+        #resourceTable input[type="text"]:focus,
+        #resourceTable input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+
+    /* ============ DROPDOWN STYLES (The Good Stuff) ============ */
+    #resourceTable select {
+        width:auto;
+        padding: 6px 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        background: white;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        background-size: 12px;
+        padding-right: 24px;
+    }
+
+        #resourceTable select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+
+        /* Multi-select dropdown - the skills one that was ugly AF */
+        #resourceTable select[multiple] {
+            min-height: 80px;
+            padding: 8px;
+            background-image: none;
+            padding-right: 8px;
+            resize: vertical;
+        }
+
+            #resourceTable select[multiple] option {
+                padding: 4px 8px;
+                border-radius: 2px;
+                margin: 1px 0;
+            }
+
+                #resourceTable select[multiple] option:checked {
+                    background: #007bff;
+                    color: white;
+                }
+
+                #resourceTable select[multiple] option:hover {
+                    background: #e9ecef;
+                }
+
+                #resourceTable select[multiple] option:checked:hover {
+                    background: #0056b3;
+                }
+
+    /* ============ BUTTON STYLES ============ */
+    #resourceTable button {
+        padding: 6px 8px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.15s ease-in-out;
+        margin: 1px;
+        line-height: 1;
+        min-width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        /* Save button - use class-based targeting */
+        #resourceTable button.btn-save {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+            #resourceTable button.btn-save:hover {
+                background-color: #1e7e34;
+                border-color: #1c7430;
+            }
+
+        /* Delete button - use class-based targeting */
+        #resourceTable button.btn-delete {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: white;
+        }
+
+            #resourceTable button.btn-delete:hover {
+                background-color: #bd2130;
+                border-color: #b21f2d;
+            }
+
+/* Select2 Dropdown */
+.select2-container {
+    min-width: 200px !important;
+}
+
+.select2-selection--multiple {
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+}
+
+.select2-selection__choice {
+    background-color: #007bff !important;
+    border: 1px solid #007bff !important;
+    color: white !important;
+}
+
+/* ============ TOAST NOTIFICATIONS ============ */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+    .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+.toast-success {
+    background-color: #28a745;
+}
+
+.toast-error {
+    background-color: #dc3545;
+}
+
+.toast-info {
+    background-color: #17a2b8;
+}
+
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding: 16px;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+        .filter-section > div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-section input,
+        .filter-section button {
+            flex: 1;
+        }
+
+    #resourceTable {
+        font-size: 0.75rem;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+
+        #resourceTable thead,
+        #resourceTable tbody,
+        #resourceTable th,
+        #resourceTable td,
+        #resourceTable tr {
+            display: block;
+        }
+
+            #resourceTable thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+        #resourceTable tr {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        #resourceTable td {
+            border: none;
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+            text-align: left;
+        }
+
+            #resourceTable td:before {
+                content: attr(data-label) ": ";
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: 600;
+                color: #495057;
+            }
+}
+
+/* ============ WEEK COLUMNS HIGHLIGHTING ============ */
+#resourceTable th:nth-child(n+6):nth-child(-n+20) {
+    background-color: #e9ecef;
+    min-width: 70px;
+    text-align: center;
+}
+
+#resourceTable td:nth-child(n+6):nth-child(-n+20) {
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+    #resourceTable td:nth-child(n+6):nth-child(-n+20) input {
+        text-align: center;
+        font-weight: 500;
+    }
+
+/* ============ UTILITY CLASSES ============ */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.font-bold {
+    font-weight: 600;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+.text-error {
+    color: #dc3545;
+}
+
+.text-warning {
+    color: #ffc107;
+}
+
+/* ============ LOADING STATES ============ */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        margin: -8px 0 0 -8px;
+        border: 2px solid #007bff;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+    }
+
+@keyframes spin {
+    to {
+        transform: rotate(360degrees);
+    }
+}

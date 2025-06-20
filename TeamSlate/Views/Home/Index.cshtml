@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "";
+}
+
+<link rel="stylesheet" href="~/css/styles.css" />
+<h2>Team Allocation</h2>
+
+<div class="filter-section">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" />
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" />
+
+    <button id="fetchBtn">Fetch</button>
+    <button id="addResourceBtn">Add Resource</button>
+</div>
+
+<table id="resourceTable"></table>
+
+
+    
+
+
+@section Scripts {
+    
+    <script src="~/js/ResourceGrid.js"></script>
+    <script src="~/js/TableRenderer.js"></script>
+    <script src="~/js/DateUtils.js"></script>
+    <script src="~/js/NotificationService.js"></script>
+    <script src="~/js/ResourceFactory.js"></script>
+    <script src="~/js/ValidationUtils.js"></script>
+    <script src="~/js/DataTransformer.js"></script>
+    <script src="~/js/ApiService.js"></script>
+    
+}

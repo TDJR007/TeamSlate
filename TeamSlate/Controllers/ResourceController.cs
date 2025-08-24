@@ -98,6 +98,12 @@ namespace TeamSlate.Controllers
         [HttpGet("with-hours")]
         public async Task<IActionResult> GetResourcesWithHours([FromQuery] DateTime start, [FromQuery] DateTime end)
         {
+            // Server side validation for date range (No more exceptions 🥲).
+            if (start > end)
+            {
+                return BadRequest(new { message = "Start date cannot be after end date." });
+            }
+
             var resources = await _context.Resources
                 .Include(r => r.ResourceSkills).ThenInclude(rs => rs.Skill)
                 .Include(r => r.WeeklyHours)
